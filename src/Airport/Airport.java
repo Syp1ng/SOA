@@ -1,5 +1,7 @@
 package Airport;
 
 public class Airport {
-    String name;
+    public String name;
+    public Tower tower;
+    public ApronControl apronControl;
 }

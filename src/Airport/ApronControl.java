@@ -1,33 +1,31 @@
 package Airport;
 
 import Airplane.Aircraft;
+import Events.HoldShortEvent;
+import Events.Subscriber;
+import Events.TaxiEvent;
 import com.google.common.eventbus.EventBus;
-import com.google.common.eventbus.Subscribe;
 
 public class ApronControl {
-    private EventBus eventBus;
 
-    private String name;
+    private EventBus eventbus;
 
-    public ApronControl(String name) {
-        eventBus = new EventBus("Apron Control");
+    public ApronControl(){
+        eventbus = new EventBus("Airport ApronControl");
     }
-    public void addSubscriber(Subscribe subscriber) {
-        eventBus.register(subscriber);
+    public void addSubscriber(Subscriber subscriber){
+        eventbus.register(subscriber);
     }
-
-    public void removeSubscriber(Subscribe subscriber) {
-        eventBus.unregister(subscriber);
+    public void removeSubscriber(Subscriber subscriber){
+        eventbus.unregister(subscriber);
     }
 
-    //don't know which one is better
-    public void taxi(Aircraft aircraft,
-                     Location start,
-                     List<Location> junktions, Location end){
-        eventBus.post(new TaxiEvent(aircraft,start,junktions,end));
+    public void callTaxi(Aircraft aircraft, Locations target){
+        eventbus.post(new TaxiEvent(aircraft, target));
     }
-    public void callTaxi(int aircraftID, Place target){
-        eventbus.post(new TaxiEvent(aircraftID, target));
-        Airport.writeLog("ApronControl, ID: " + aircraftID + ", Taxi " + target);
+
+    public void callHoldShort(Aircraft aircraft, Checkpoint target){
+        eventbus.post(new HoldShortEvent(aircraft, target));
     }
+
 }
