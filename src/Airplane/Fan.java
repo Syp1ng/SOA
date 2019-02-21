@@ -9,10 +9,11 @@ public class Fan {
 
     public Fan(){
         for(int i = 0; i<96;i++) {
-            //blades.add(new Blade(i, bladeMaterial));
+            blades.add(new Blade(i, BladeMaterial.Carbon));
         }
     }
     public void start(){
+        rpm = 1;
     }
 
     public void increaseRPM(int value){

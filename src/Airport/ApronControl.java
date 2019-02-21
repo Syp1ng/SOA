@@ -22,10 +22,12 @@ public class ApronControl {
 
     public void callTaxi(Aircraft aircraft, Locations target){
         eventbus.post(new TaxiEvent(aircraft, target));
+        System.out.println("ApronControl: "+aircraft.getId() + " taxi to " + target + " please.");
     }
 
     public void callHoldShort(Aircraft aircraft, Checkpoint target){
         eventbus.post(new HoldShortEvent(aircraft, target));
+        System.out.println("ApronControl: "+aircraft.getId() + " hold short on " + target + " please.");
     }
 
 }

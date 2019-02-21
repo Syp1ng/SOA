@@ -5,6 +5,17 @@ public class Gate {
     private boolean isOpen;
     private Aircraft aircraft;
 
+    public String getName() {
+        return name;
+    }
+
+    private String name;
+
+    public Gate(String name,Aircraft aircraft) {
+        this.aircraft = aircraft;
+        this.name = name;
+    }
+
     public boolean isOpen() {
         return isOpen;
     }

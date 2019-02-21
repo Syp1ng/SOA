@@ -25,10 +25,12 @@ public class Tower {
 
     public void callRunwayClearedForTakeOff(Aircraft aircraft, Runways target){
         eventbus.post(new RunwayClearedForTakeOffEvent(aircraft, target));
+        System.out.println("Tower: "+aircraft.getId()+" cleared for takeoff on " + target);
     }
 
     public void callRunwayClearedToLand(Aircraft aircraft, Runways target){
         eventbus.post(new RunwayClearedToLandEvent(aircraft, target));
+        System.out.println("Tower: "+aircraft.getId()+" cleared to land on " + target);
     }
 
 }

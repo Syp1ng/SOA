@@ -4,6 +4,7 @@ public class Gear {
     GearType type;
     private boolean isDown;
     private boolean isBrakeSet;
+    private Wheel[] weels;
 
     public void up(){
         isDown=false;
