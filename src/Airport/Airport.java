@@ -48,10 +48,6 @@ public class Airport {
     }
 
     public void startSimulation(){
-        {
-            boolean westWind;
-            westWind = (Math.random()*100) < 50;
-        }
 
         Gate gateClear = new Gate("nix", null);
         for(int x = 0; x < 10; x++){
